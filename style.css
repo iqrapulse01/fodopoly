@@ -684,7 +684,7 @@ html {
 
   .header-text {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 36%;
     transform: translate(-50%, -50%);
     z-index: 10;
