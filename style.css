@@ -259,9 +259,7 @@ html {
 .logo h1 span:nth-child(8) {
   animation: drop-letters 5s 0.8s infinite;
 }
-.logo h1 span:nth-child(9) {
-  animation: drop-letters 5s 0.9s infinite;
-}
+
 
 @keyframes drop-letters {
   0% {
@@ -685,20 +683,12 @@ html {
   }
 
   .header-text {
+    margin-top: 40px;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 36%;
     transform: translate(-50%, -50%);
     z-index: 10;
-  }
-
-  .heading {
-    font-size: 2rem;
-
-  }
-
-  .header-paragraph {
-    font-size: 18rem;
   }
 
   .popular-tours-heading {
@@ -726,9 +716,12 @@ html {
 }
 
 @media (max-width: 800px) {
-  .header-paragraph {
-    font-size:10px
-  }
+ .heading{
+  font-size:1.8rem;
+ }
+ .header-paragraph{
+  font-size:1.4rem;
+ }
 
   .popular-tours-heading {
     font-size: 5rem;
