@@ -759,7 +759,7 @@ html {
   }
 
   .header {
-    height: 70vh;
+    height: 80vh;
   }
 
   .contact-heading {
@@ -780,6 +780,6 @@ html {
     font-size:1.4rem;
    }
   html {
-    font-size: 45%;
+    font-size: 55%;
   }
 }
