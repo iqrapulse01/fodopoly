@@ -770,6 +770,9 @@ html {
     padding: 2rem;
     height: 40rem;
   }
+  .footer{
+    display: none;
+  }
 }
 
 @media (max-width: 500px) {

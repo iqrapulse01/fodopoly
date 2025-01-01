@@ -4,96 +4,93 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,600,700,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Foodopoly</title>
+    <title>Arrow Page Slider</title>
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        display: block;
+      }
+      .navigation {
+        position: fixed;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+      }
+      .arrow {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color:rgb(140, 21, 16);
+        color: white;
+        border: none;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 6px;
+      }
+      .arrow:disabled {
+        background-color: rgb(37, 22, 22);
+        cursor: not-allowed;
+      }
+    </style>
   </head>
-  <body>
-    <div class="container">
-      <!-- Navbar -->
-      <div class="open-navbar-icon navbar-icon center">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-       
-      </div>
-      <div class="img" style="text-align: center; background: #fffefe">
-        <img src="img/SplashMaterial/Foodopoly.png" alt="" width="210px">
-    </div>
-      
-      <div class="navbar-wrapper">
-        <nav class="navbar">
-          <div class="close-navbar-icon navbar-icon center">
-            <div class="line line-1"></div>
-            <div class="line line-2"></div>
-          </div>
-          <div class="nav-list">
-            <a href="/index.html" class="nav-link center">Home</a>
-            <a href="/Why-Choose.html" class="nav-link center">Why Foodopoly</a>
-            <a href="/tool.html" class="nav-link center">Gamified Tools</a>
-            <a href="/offers.html" class="nav-link center">Introductory Offers</a>
-            <a href="/LimitedTime.html" class="nav-link center">Bonuses</a>
-            <a href="/packages.html" class="nav-link center pack-color">Packages</a>
-            <a href="/contact.html" class="nav-link center contact-color">Contact</a>
-          </div>
-        </nav>
-      </div>
-      <!-- End of Navbar -->
+  <body >
+    
+    <iframe id="iframe" src="welcome.html" ></iframe>
 
-      <!-- Header -->
-      <header class="header center">
-        <div class="header-text">
-          <h1 class="heading">Transform Your Restaurant Marketing with Foodology's Gamified Tools!</h1> <br><br>
-          <p class="header-paragraph">
-            "Kickstart your success with a 14-day trial, exclusive welcome gifts, and tailored marketing solutions."
-          </p>
-          <br> <br>
-          <a href="/packages.html" class="footer-link" target="_blank">Get Started Now – Limited - Time Offer!</a>
-        </div>
-        
-        <img        
-          src="images/airballoon.png"
-          alt="Header Image"
-          class="header-image"
-        />
-        <div class="logo">
-          <h1>
-            <span class="center">F</span>
-            <span class="center">o</span>
-            <span class="center">o</span>
-            <span class="center">d</span>
-            <span class="center">p</span>
-            <span class="center">o</span>
-            <span class="center">l</span>
-            <span class="center">y</span>
-          </h1>
-        </div>
-        
-      </header>
-      <!-- End of Header -->
-     
-
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-list">
-          <a href="/index.html" class="footer-link">Home</a>
-          <a href="/Why-Choose.html" class="footer-link">Why Foodology?</a>
-          <a href="/packages.html" class="footer-link">Packages</a>
-          <a href="/tool.html" class="footer-link">Gamified Tools</a>
-          <a href="/offers.html" class="footer-link">Introductory Offers</a>
-          <a href="/LimitedTime.html" class="footer-link"> Bonuses</a>
-          <a href="/contact.html" class="footer-link"> Contact</a>
-        </div>
-        <p class="footer-paragraph">
-          Copyright &copy; All Rights Reserved
-        </p>
-      </footer>
-      <!-- End of Footer -->
-      
+    <div class="navigation">
+      <button id="prev" class="arrow" disabled>&lt;</button>
+      <button id="next" class="arrow">&gt;</button>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+      // Pages for the slider
+      const pages = [
+        "welcome.html",
+        "main.html",
+        "Why-Choose.html",
+        "packages.html",
+        "tool.html",
+        "offers.html",
+        "LimitedTime.html",
+        "contact.html",
+      ];
+
+      let currentIndex = 0; // Starting page index
+      const iframe = document.getElementById("iframe");
+      const prevButton = document.getElementById("prev");
+      const nextButton = document.getElementById("next");
+
+      // Function to update the iframe src and button states
+      function updateIframe() {
+        iframe.src = pages[currentIndex];
+        prevButton.disabled = currentIndex === 0;
+        nextButton.disabled = currentIndex === pages.length - 1;
+      }
+
+      // Event listeners for navigation buttons
+      prevButton.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateIframe();
+        }
+      });
+
+      nextButton.addEventListener("click", () => {
+        if (currentIndex < pages.length - 1) {
+          currentIndex++;
+          updateIframe();
+        }
+      });
+    </script>
   </body>
 </html>
